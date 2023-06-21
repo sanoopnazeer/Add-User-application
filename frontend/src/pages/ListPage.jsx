@@ -1,17 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DataTable from "../components/Datatable";
 import "../components/Datatable.css";
 import { MDBBtn } from "mdb-react-ui-kit";
 import { Link } from "react-router-dom";
-import CsvDownloadButton from "../components/CsvDownload";
+import { CSVLink } from "react-csv";
+import { allUsers } from "../axios/services/userServices";
 
 const ListPage = () => {
-  const [sharedData, setSharedData] = useState('');
 
-  // Function to update the shared data
-  const updateSharedData = (data) => {
-    setSharedData(data);
-  };
+  const [userDetails, setUserDetails] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const users = await allUsers();
+      setUserDetails(users.users);
+    };
+    fetchData();
+  }, []);
+
+  const headers = [
+    { label: "Firstname", key: "firstname" },
+    { label: "Lastname", key: "lastname" },
+    { label: "Email", key: "email" },
+    { label: "Gender", key: "gender" },
+    { label: "Status", key: "status" },
+  ];
 
   return (
     <div className="datatable">
@@ -22,12 +34,14 @@ const ListPage = () => {
               <i class="fa-regular fa-plus"></i>Add User
             </MDBBtn>
           </Link>
-          {/* <CsvDownloadButton updateSharedData={updateSharedData} sharedData={sharedData} /> */}
+          <CSVLink data={userDetails} headers={headers} filename="UserData.csv">
+            <MDBBtn color="red">Export to CSV</MDBBtn>
+          </CSVLink>
         </div>
       </div>
       <div className="datatable-main">
         <div className="datatable-container">
-          <DataTable updateSharedData={updateSharedData}/>
+          <DataTable />
         </div>
       </div>
     </div>

@@ -19,7 +19,7 @@ import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
 
-export default function DataTable({updateSharedData}) {
+export default function DataTable() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -102,9 +102,6 @@ export default function DataTable({updateSharedData}) {
     ],
     rows: [],
   };
-
-  // updateSharedData(data)
-
 
   const [datatable, setDatatable] = React.useState(data);
 
