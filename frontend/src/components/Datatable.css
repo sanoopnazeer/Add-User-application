@@ -1,0 +1,29 @@
+.datatable{
+    margin-top: 80px;
+}
+
+.datatable-top {
+    display: flex;
+    justify-content: center;
+}
+
+.datatable-top-container{
+    justify-content: end;
+    display: flex;
+    width: 80%;
+}
+
+.datatable-main {
+    display: flex;
+    justify-content: center;
+}
+
+.datatable-container {
+    width: 80%;
+}
+
+.shadow-box {
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
