@@ -34,7 +34,8 @@ export default function ViewPage() {
             <MDBCard className="mb-4">
               <MDBCardBody className="text-center">
                 <MDBCardImage
-                  src={`http://localhost:5000/image/${user?._id}`}
+                  // src={`http://localhost:5000/image/${user?._id}`}
+                  src={`https://user-application-qld6.onrender.com/image/${user?._id}`}
                   alt="avatar"
                   className="rounded-circle"
                   style={{ width: "150px" }}

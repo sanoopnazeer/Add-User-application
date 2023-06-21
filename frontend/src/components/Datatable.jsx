@@ -137,7 +137,8 @@ export default function DataTable({updateSharedData}) {
           </MDBValidationItem>
         ),
         profile: (
-          <img width="50px" height="50px" src={`http://localhost:5000/image/${user._id}`} alt="userprofileimage"/>
+          // <img width="50px" height="50px" src={`http://localhost:5000/image/${user._id}`} alt="userprofileimage"/>
+          <img width="50px" height="50px" src={`https://user-application-qld6.onrender.com/image/${user._id}`} alt="userprofileimage"/>
         ),
         action: (
           <MDBDropdown>
